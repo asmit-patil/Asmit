@@ -10,104 +10,41 @@
 <title>Registration page</title>
 </head>
 <body>
-<div class="container wrapper">
+
+<form action="signup" method="POST" >
 <div class="container">
-<url:url value="/all/register" var="url"></url:url>
-<form:form  action="${url }" modelAttribute="customer" method="post">
-<div class="boxed" style= "border:1px solid">
-<div class="form-group">
-<label for="id"></label>
-<form:hidden path="id" ></form:hidden>
-<form:errors path="id" cssStyle="color:red"></form:errors>
-
-</div>
-
-<div class="form-group">
-<label for="firstname">Enter first name</label>
-<form:input path="firstname"></form:input>
-<form:errors path="firstname" cssStyle="color:red"></form:errors>
-</div>
-
-
-<div class="form-group">
-<label for="lastname">Enter last name</label>
-<form:input path="lastname"></form:input>
-<form:errors path="lastname" cssStyle="color:red"></form:errors>
-</div>
-
-
-
-<div class="form-group">
-<label for="email">Enter email</label>
-<form:input path="email"></form:input>
-<form:errors path="email" cssStyle="color:red"></form:errors>
-<span style="color:red">${duplicateEmail }</span>
-</div>
-
-
-
-<div class="form-group">
-<label for="phone">Enter phone number</label>
-<form:input path="phone"></form:input>
-<form:errors path="phone" cssStyle="color:red"></form:errors>
-</div>
-</div>
-<br>
-<div class="boxed" style= "border:1px solid">
-<div class="form-group">
-<label for="users.username">Enter username</label>
-<form:input path="users.username"></form:input>
-<form:errors path="users.username" cssStyle="color:red"></form:errors>
-<span style="color:red">${duplicateUsername }</span>
-</div>
-
-
-<div class="form-group">
-<label for="users.password">Enter password</label>
-<form:input path="users.password" type="password"></form:input>
-<form:errors path="users.password" cssStyle="color:red"></form:errors>
-</div>
-</div>
-<br>
-<div class="boxed" style= "border:1px solid">
-<div class="form-group">
-<label for="billingAddress.streetname">Enter Streetname</label>
-<form:input path="billingAddress.streetname"></form:input>
-<form:errors path="billingAddress.streetname" cssStyle="color:red"></form:errors>
-</div>
-
-<div class="form-group">
-<label for="billingAddress.apartmentnumber">Enter Apartment number</label>
-<form:input path="billingAddress.apartmentnumber"></form:input>
-<form:errors path="billingAddress.apartmentnumber" cssStyle="color:red"></form:errors>
-</div>
-
-<div class="form-group">
-<label for="billingAddress.city">Enter City</label>
-<form:input path="billingAddress.city"></form:input>
-<form:errors path="billingAddress.city" cssStyle="color:red"></form:errors>
-</div>
-
-<div class="form-group">
-<label for="billingAddress.country">Enter country</label>
-<form:input path="billingAddress.country"></form:input>
-<form:errors path="billingAddress.country" cssStyle="color:red"></form:errors>
-</div>
-
-<div class="form-group">
-<label for="billingAddress.zipcode">Enter zipcode</label>
-<form:input path="billingAddress.zipcode"></form:input>
-<form:errors path="billingAddress.zipcode" cssStyle="color:red"></form:errors>
-</div>
-</div>
-<br>
-
-
-<input type="submit" value="Register">
-
-</form:form></div>
-
-</div>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+         <div class="row myborder">
+             <h4 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">Sign Up Now</h4><hr>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                <input size="60" maxlength="255" class="form-control" placeholder="User Name" name="id" id="id" type="text"></div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
+                <input size="60" maxlength="255" class="form-control" placeholder="Password" name="password" id="password" type="password"></div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                <input size="60" maxlength="255" class="form-control" placeholder="First Name" name="fname" id="UserRegistration_fname" type="text"></div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                <input size="60" maxlength="255" class="form-control" placeholder="Last Name" name="lname" id="UserRegistration_lname" type="text"></div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
+                <input size="60" maxlength="255" class="form-control" placeholder="Address" name="add" id="UserRegistration_address" type="text"></div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
+                <input size="60" maxlength="255" class="form-control" placeholder="Contact Number" name="number" id="UserRegistration_contactnumber" type="text"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn-u pull-left" type="submit">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+      </div>
+      </form>
 </body>
 <%@ include file="Footer.jsp" %>
 </html>

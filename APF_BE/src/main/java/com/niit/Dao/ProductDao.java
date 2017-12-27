@@ -1,5 +1,7 @@
 package com.niit.Dao;
 
-public interface ProductDao {
+import com.niit.model.*;
 
+public interface ProductDao {
+		public void insertProduct(Product product);
 }

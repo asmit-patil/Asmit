@@ -55,11 +55,11 @@ src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></scrip
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="<c:url value="/" /> ">Home</a></li>
-                        <li><a href="#"> Admin</a></li>
+                        <li><a href="<c:url value="adding" />"> Admin</a></li>
                         <li><a href="#">Contact Us</a></li>
  </ul>
  <ul class="nav navbar-nav navbar pull-right">
-   <li><a href="#">Register</a></li>  <li><a href="#">Login</a></li>  <li><a href="#">Logout</a></li>  <li><a href="#">My Cart</a></li></ul>
+   <li><a href="<c:url value="signup" />">Signup</a></li>  <li><a href="#">Login</a></li>  <li><a href="#">Logout</a></li>  <li><a href="#">My Cart</a></li></ul>
  </div>
  
  </div>

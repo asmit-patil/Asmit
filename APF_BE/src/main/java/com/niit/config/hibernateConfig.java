@@ -76,6 +76,7 @@ public class hibernateConfig {
 			builder.addAnnotatedClass(User.class);
 			builder.addAnnotatedClass(Supplier.class);
 			builder.addAnnotatedClass(Category.class);
+			builder.addAnnotatedClass(Product.class);
 			return builder.buildSessionFactory();
 			
 		}
