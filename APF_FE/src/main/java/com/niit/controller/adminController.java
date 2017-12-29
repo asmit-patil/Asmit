@@ -1,10 +1,16 @@
 package com.niit.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,16 +34,16 @@ public class adminController {
 	
 		@RequestMapping("/adding")
 		public String adding(){
-			return "Adding";
+			return "adding";
 		}
 		
 	@RequestMapping(value="/saveSupp", method=RequestMethod.POST)
 	@Transactional
-	public ModelAndView saveSuppData(@RequestParam("sid")int sid,@RequestParam("name")String sname){
+	public ModelAndView saveSuppData(@RequestParam("sid")int sid,@RequestParam("sname")String sname){
 		 ModelAndView mv=new  ModelAndView();
 		 Supplier s=new Supplier();
 		 s.setSid(sid);
-		 s.setSuppllierName(sname);
+		 s.setsname(sname);
 		 supplierDaoImpl.insertSupplier(s);
 		 mv.setViewName("adding");
 		 return mv;
@@ -45,28 +51,81 @@ public class adminController {
 	
 	@RequestMapping(value="/saveCat", method=RequestMethod.POST)
 	@Transactional
-	public ModelAndView saveCatData(@RequestParam("cid")int cid,@RequestParam("name")String cname){
+	public ModelAndView saveCatData(@RequestParam("cid")int cid,@RequestParam("cname")String cname){
 		 ModelAndView mv=new  ModelAndView();
 		 Category c=new Category();
 		 c.setCid(cid);
-		 c.setCategoryName(cname);
+		 c.setcname(cname);
 		 categoryDaoImpl.insertCategory(c);
 		 mv.setViewName("adding");
 		 return mv;
+	
+		 
+		 
 	}
 	
-//	@RequestMapping(value="/saveProduct", method=RequestMethod.POST)
-//	//@Transactional
-//	public String saveProd(HttpServletRequest request, @RequestParam("file")MultipartFile file)
-//	{
-//		Product prod = new Product();
-//		prod.setPname(request.getParameter("pName"));
-//		prod.setPrice(Double.parseDouble(request.getParameter("pPrice")));
-//		prod.setDescription(request.getParameter("pDescrition"));
-//		prod.setStock(Integer.parseInt(request.getParameter("pStock")));
-//		prod.setCategory(CategoryDaoImpl.findByCatId(Integer.parseInt(request.getParameter("pCategory"))));
-//		prod.setSupplier(SupplierDaoImpl.findBySuppId(Integer.parseInt(request.getParameter("pSupplier"))));
-//	}
-//	
-//	
+	@RequestMapping(value="/saveProduct", method=RequestMethod.POST)
+	//@Transactional
+	public String saveProd(HttpServletRequest request, @RequestParam("file")MultipartFile file)
+	{
+		Product prod = new Product();
+		prod.setPname(request.getParameter("pName"));
+		prod.setPrice(Double.parseDouble(request.getParameter("pPrice")));
+		prod.setDescription(request.getParameter("pDescrition"));
+		prod.setStock(Integer.parseInt(request.getParameter("pStock")));
+		String cat=request.getParameter("pCategory");
+		String sat=request.getParameter("pSupplier");
+		prod.setCategory(categoryDaoImpl.findByCatId(Integer.parseInt(cat)));
+		prod.setSupplier(supplierDaoImpl.findBySuppId(Integer.parseInt(sat)));
+		
+		String filepath=request.getSession().getServletContext().getRealPath("/");
+		String filename=file.getOriginalFilename();
+		productDaoImpl.insertProduct(prod);
+		System.out.println("file path"+filepath);
+		try{
+			byte imagebyte[]=file.getBytes();
+			BufferedOutputStream fos=new BufferedOutputStream(new FileOutputStream(filepath+"resources/images/"+filename));
+			fos.write(imagebyte);
+			fos.close();
+		}
+		catch(IOException e){
+			e.printStackTrace();
+			
+		}
+		return "adding";
+	}
+	
+	@ModelAttribute
+	public void loadingDataInPage(Model m){
+		m.addAttribute("satList", supplierDaoImpl.retrive());
+		m.addAttribute("catList", categoryDaoImpl.retrive());
+		m.addAttribute("prodList", productDaoImpl.retrive());
+	}
+	
+	@RequestMapping("/productList")
+	public ModelAndView prodlist()
+	{
+		ModelAndView mv= new ModelAndView();
+		mv.addObject("prodList", productDaoImpl.retrive());
+		mv.setViewName("productAdminList");
+		return mv;
+	}
+	
+	@RequestMapping("/supplierList")
+	public ModelAndView supplist()
+	{
+		ModelAndView mv= new ModelAndView();
+		mv.addObject("satList", supplierDaoImpl.retrive());
+		mv.setViewName("suppAdminList");
+		return mv;
+	}
+	
+	@RequestMapping("/categoryList")
+	public ModelAndView catlist()
+	{
+		ModelAndView mv= new ModelAndView();
+		mv.addObject("catList", categoryDaoImpl.retrive());
+		mv.setViewName("categoryAdminList");
+		return mv;
+	}
 }

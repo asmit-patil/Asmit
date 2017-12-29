@@ -1,6 +1,5 @@
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-    <meta charset="utf-8">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -12,7 +11,8 @@
     <title>AP Footwears</title>
 <!-- <head> -->
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css"
 href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -28,7 +28,7 @@ src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></scrip
 
 <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 
-
+<!--</head>  -->
  
  
  <div class="navbar-wrapper">
@@ -49,23 +49,53 @@ src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></scrip
 <img src="${url }" height="70" width="70" >
                
                </div>
-                 <div align="right" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style= display:"inline-block">
+                 <div align="right" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style= "display:inline-block">
 
         
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="<c:url value="/" /> ">Home</a></li>
                         <li><a href="<c:url value="adding" />"> Admin</a></li>
-                        <li><a href="#">Contact Us</a></li>
- </ul>
- <ul class="nav navbar-nav navbar pull-right">
-   <li><a href="<c:url value="signup" />">Signup</a></li>  <li><a href="#">Login</a></li>  <li><a href="#">Logout</a></li>  <li><a href="#">My Cart</a></li></ul>
- </div>
+                        
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" 
+                        href="#">Admin List<span class="caret"></span></a>
+                        
+                        	<ul class="dropdown-menu">
+                        	<li><a href="${pageContext.request.contextPath }/productList">Product</a></li>
+                      	 	<li><a href="${pageContext.request.contextPath }/supplierList">Supplier</a></li>
+                        	<li><a href="${pageContext.request.contextPath }/categoryList">Category</a></li>
+                       	</ul>
+                        </li>	
+                        
+                         <li class="dropdown">
+                         <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                     Select by Category<b class="caret"></b></a>
+			<ul  class="dropdown-menu"><li><a href="#">Login</a></li>
+			<li><a href="#">Login</a></li>
+			<li><a href="#">Login</a></li></ul>
+
+
+<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">dropdown<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="#">Edit</a></li>
+			<li><a href="#">Delete</a></li>
+			<li><a href="#">View</a></li>
+
+			</ul>
+			</li>
+                        
+             		</ul>
+ 			
+ 				<ul class="nav navbar-nav navbar pull-right">
+   					<li><a href="<c:url value="goToRegister" />">Signup</a></li>  
+  					<li><a href="#">Login</a></li> 
+    				<li><a href="#">Logout</a></li>
+    				<li><a href="#">My Cart</a></li>
+    			</ul>
+ 				</div>
  
- </div>
- 
- 
- 
+ 				</div>
  
  </div>
  </nav></div></div>

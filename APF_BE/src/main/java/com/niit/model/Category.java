@@ -2,6 +2,8 @@ package com.niit.model;
 import java.io.Serializable;
 import java.util.*;
 
+//import org.hibernate.annotations.Entity;
+
 import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
@@ -11,18 +13,18 @@ public class Category {
 	
 	@Id
 	private int cid;
-	private String categoryName;
+	private String cname;
 	public int getCid() {
 		return cid;
 	}
 	public void setCid(int cid) {
 		this.cid = cid;
 	}
-	public String getCategoryName() {
-		return categoryName;
+	public String getcname() {
+		return cname;
 	}
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+	public void setcname(String cname) {
+		this.cname = cname;
 	}
 	
 	@OneToMany(targetEntity=Product.class, fetch=FetchType.EAGER, mappedBy="supplier")

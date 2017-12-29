@@ -54,7 +54,7 @@ public class hibernateConfig {
 					properties.put("hibernate.dialect", DATABASE_DIALECT);		
 					properties.put("hibernate.hbm2ddl.auto", "update");
 					properties.put("hibernate.show_sql", "true");
-					//properties.put("hibernate.format_sql", "true");
+					properties.put("hibernate.format_sql", "true");
 					
 					
 					System.out.println("TABLES CREATED........")	;
@@ -103,6 +103,13 @@ public class hibernateConfig {
 		public CategoryDaoImpl saveCategoryData(SessionFactory sf) 
 		{
 			return new CategoryDaoImpl(sf);
+		}
+		
+		@Autowired
+		@Bean(name="ProductDaoImpl")
+		public ProductDaoImpl saveProductData(SessionFactory sf) 
+		{
+			return new ProductDaoImpl(sf);
 		}
 		// transactionManager bean
 		@Bean

@@ -13,18 +13,18 @@ public class Supplier implements Serializable{
 	
 	@Id
 	private int sid;
-	private String suppllierName;
+	private String sname;
 	public int getSid() {
 		return sid;
 	}
 	public void setSid(int sid) {
 		this.sid = sid;
 	}
-	public String getSuppllierName() {
-		return suppllierName;
+	public String getsname() {
+		return sname;
 	}
-	public void setSuppllierName(String suppllierName) {
-		this.suppllierName = suppllierName;
+	public void setsname(String sname) {
+		this.sname = sname;
 	}
 	
 	

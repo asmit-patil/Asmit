@@ -18,6 +18,7 @@ pageEncoding="ISO-8859-1"%>
                         <div class="panel panel-default">
                             <div class="panel-heading">                                
                                 <div class="row-fluid user-row">
+                 
                                     <!--  <img src="" class="" alt="ENTER USER NAME AND PASSWORD"/> -->
                                    <center> ENTER USERNAME AND PASSWORD</center>
                                    <c:if test="${not empty msg}">
