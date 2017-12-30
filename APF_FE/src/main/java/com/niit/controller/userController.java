@@ -1,4 +1,4 @@
-package com.niit.controller;
+/*package com.niit.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +13,10 @@ import com.niit.model.User;
 
 @Controller
 public class userController {
+	
 	@Autowired
 	UserDaoImpl userDaoImpl;
+	
 	@RequestMapping(value="/goToRegister", method=RequestMethod.GET)
 	public ModelAndView Register(){
 		ModelAndView  mv= new ModelAndView ();
@@ -33,3 +35,4 @@ public class userController {
 	}
 
 }
+*/
