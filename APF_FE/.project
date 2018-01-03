@@ -3,6 +3,7 @@
 	<name>APF_FE</name>
 	<comment></comment>
 	<projects>
+		<project>APF_BE</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

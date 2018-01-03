@@ -40,7 +40,7 @@
 <input class="form-control" type="number" name="sid" required>
 
 <h4 class="input-title">Supplier Name</h4>
-<input class="form-control" type="text" name="sname" required>
+<input class="form-control" type="text" name="sname" required><br>
 
 <button class="btn btn-lg btn-primary" type="submit">Save</button>
 <button class="btn btn-lg btn-warning" type="reset">Cancel</button>
@@ -55,7 +55,7 @@
 <input class="form-control" type="number" name="cid" required>
 
 <h4 class="input-title">Category Name</h4>
-<input class="form-control" type="text" name="cname" required>
+<input class="form-control" type="text" name="cname" required><br>
 
 <button class="btn btn-lg btn-primary" type="submit">Save</button>
 <button class="btn btn-lg btn-warning" type="reset">Cancel</button>
@@ -107,7 +107,7 @@
 <div class="fileinput fileinput-new" data-provides="fileinput">
 <td>Product Image</td>
 <td><input class="form-coontrol" type="file" name="file" accept="image/*"></td>
-</div>
+</div><br>
 <button class="btn btn-lg btn-primary" type="submit">Save</button>
 <button class="btn btn-lg btn-warning" type="reset">Cancel</button>
 </form>

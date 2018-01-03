@@ -11,8 +11,6 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id;
-	
 	private String email;
 
 	public String getEmail() {
@@ -35,14 +33,7 @@ public class User implements Serializable {
 	
 	private String role;
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
+	
 	public String getPassword() {
 		return password;
 	}

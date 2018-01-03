@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<title>AP Books</title>
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="navbar navbar-default">
 		<div class="container-fluid">
 		<button type="button" class="navbar-toggle collapsed" 
@@ -30,24 +16,24 @@
 			<div class="collapse navbar-collapse" id="collapse-example">
 			
 		
-			<ul class="nav navbar-nav">
+			<ul class="nav navbar-nav navbar">
 			
 			 <li><a href="<c:url value="/" /> ">Home</a></li>
-             <li><a href="<c:url value="adding" />"> Admin</a></li>
+             <li><a href="<c:url value="admin/adding" />"> Admin</a></li>
 			 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" 
-                        href="#">Admin List<span class="caret"></span></a>
+                        href="#" id="navbarDropdown" aria-haspopup="true">Admin List<span class="caret"></span></a>
                         
-                        	<ul class="dropdown-menu">
-                        	<li><a href="${pageContext.request.contextPath }/productList">Product</a></li>
-                      	 	<li><a href="${pageContext.request.contextPath }/supplierList">Supplier</a></li>
-                        	<li><a href="${pageContext.request.contextPath }/categoryList">Category</a></li>
+                        	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        	<li><a href="${pageContext.request.contextPath }/admin/productList">Product</a></li>
+                      	 	<li><a href="${pageContext.request.contextPath }/admin/supplierList">Supplier</a></li>
+                        	<li><a href="${pageContext.request.contextPath }/admin/categoryList">Category</a></li>
                        	</ul>
                         </li>	
                         
                          <li class="dropdown">
-                         <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                         <a href="" class="dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" aria-haspopup="true">
                      		Select by Category<b class="caret"></b></a>
-							<ul  class="dropdown-menu">
+							<ul  class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<c:forEach var="catVal" items="${catList }">
 									<li><a href="${pageContext.request.contextPath }/productCustList?cid=${catVal.cid}">${catVal.cname}</a></li>
 								</c:forEach>
@@ -60,13 +46,43 @@
 
 			
 			<ul class="nav navbar-nav navbar pull-right">
-   					<li><a href="<c:url value="goToRegister" />">Signup</a></li>  
-  					<li><a href="#">Login</a></li> 
-    				<li><a href="#">Logout</a></li>
-    				<li><a href="#">My Cart</a></li>
+				<c:if test="${pageContext.request.userPrincipal.name==null }">
+   					<li><a href="<c:url value="${pageContext.request.contextPath }/goToRegister" />">Signup</a></li>  
+  					<li><a href="${pageContext.request.contextPath }/goToLogin">Login</a></li> 
+  				</c:if>
+  				
+  				<c:if test="${pageContext.request.userPrincipal.name != null }">
+  					<li><a>Welcome ${pageContext.request.userPrincipal.name }</a></li>
+  					<li><a href="${pageContext.request.contextPath }/logout">Logout</a></li>
+  				</c:if>
+    				
+    				
     			</ul>
 			</div>
 		</div>
 	</nav>
-</body>
-</html>
+
+<!--  
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Page 1-1</a></li>
+          <li><a href="#">Page 1-2</a></li>
+          <li><a href="#">Page 1-3</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav> -->
+ 

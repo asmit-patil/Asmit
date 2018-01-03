@@ -14,6 +14,7 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.Dao.UserDao;
 import com.niit.DaoImpl.*;
 import com.niit.model.*;
 
@@ -72,7 +73,7 @@ public class hibernateConfig {
 			LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 			
 			builder.addProperties(getHibernateProperties());
-			//builder.scanPackages("net.kzn.shoppingbackend.dto");
+			builder.scanPackages("com.niit.APF_BE.model");
 			builder.addAnnotatedClass(User.class);
 			builder.addAnnotatedClass(Supplier.class);
 			builder.addAnnotatedClass(Category.class);
@@ -81,9 +82,6 @@ public class hibernateConfig {
 			
 		}
 
-		
-		
-		
 		@Autowired
 		@Bean(name="UserDaoImpl")
 		public UserDaoImpl saveUserData(SessionFactory sf) 

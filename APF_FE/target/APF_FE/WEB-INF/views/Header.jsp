@@ -1,66 +1,29 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="url" %>
-    <title>AP Footwears</title>
-<!-- <head> -->
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css"
-href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- Angular Js -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 
-<!-- JQuery -->
-<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-
-<link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
-
-<!--</head>  -->
- 
- 
- <div class="navbar-wrapper">
-    <div class="container">
-
-        <nav class="navbar navbar-default ">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                            aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                  
-   <url:url value="/resources/images/logo.png" var="url"></url:url>
-<img src="${url }" height="70" width="70" >
-               
-               </div>
-                 <div align="right" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style= "display:inline-block">
-
-        
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="<c:url value="/" /> ">Home</a></li>
-                        <li><a href="<c:url value="adding" />"> Admin</a></li>
+<nav class="navbar navbar-default">
+		<div class="container-fluid">
+		<button type="button" class="navbar-toggle collapsed" 
+   data-toggle="collapse" data-target="#collapse-example" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+			<div class="navbar-header">
+				
+				<a class="navbar-brand" href="#"><img src="<c:url value="/resources/images/logo.jpg" />" alt="apf" height="35px" width="70px"></a>
+				<a class="navbar-brand" href="#">AP Books</a>
+			</div>
+			<div class="collapse navbar-collapse" id="collapse-example">
+			
+		
+			<ul class="nav navbar-nav navbar">
+			
+			 <li><a href="<c:url value="/" /> ">Home</a></li>
+             <li><a href="<c:url value="adding" />"> Admin</a></li>
+			 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" 
+                        href="#" id="navbarDropdown" aria-haspopup="true">Admin List<span class="caret"></span></a>
                         
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" 
-                        href="#">Admin List<span class="caret"></span></a>
-                        
-                        	<ul class="dropdown-menu">
+                        	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         	<li><a href="${pageContext.request.contextPath }/productList">Product</a></li>
                       	 	<li><a href="${pageContext.request.contextPath }/supplierList">Supplier</a></li>
                         	<li><a href="${pageContext.request.contextPath }/categoryList">Category</a></li>
@@ -68,34 +31,51 @@ src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></scrip
                         </li>	
                         
                          <li class="dropdown">
-                         <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                     Select by Category<b class="caret"></b></a>
-			<ul  class="dropdown-menu"><li><a href="#">Login</a></li>
-			<li><a href="#">Login</a></li>
-			<li><a href="#">Login</a></li></ul>
+                         <a href="" class="dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" aria-haspopup="true">
+                     		Select by Category<b class="caret"></b></a>
+							<ul  class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<c:forEach var="catVal" items="${catList }">
+									<li><a href="${pageContext.request.contextPath }/productCustList?cid=${catVal.cid}">${catVal.cname}</a></li>
+								</c:forEach>
+							</ul>
+						</li>
 
 
-<li class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">dropdown<span class="caret"></span></a>
-			<ul class="dropdown-menu">
-			<li><a href="#">Edit</a></li>
-			<li><a href="#">Delete</a></li>
-			<li><a href="#">View</a></li>
 
-			</ul>
-			</li>
-                        
-             		</ul>
- 			
- 				<ul class="nav navbar-nav navbar pull-right">
+                        </ul>
+
+			
+			<ul class="nav navbar-nav navbar pull-right">
    					<li><a href="<c:url value="goToRegister" />">Signup</a></li>  
   					<li><a href="#">Login</a></li> 
     				<li><a href="#">Logout</a></li>
     				<li><a href="#">My Cart</a></li>
     			</ul>
- 				</div>
+			</div>
+		</div>
+	</nav>
+
+<!--  
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Page 1-1</a></li>
+          <li><a href="#">Page 1-2</a></li>
+          <li><a href="#">Page 1-3</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav> -->
  
- 				</div>
- 
- </div>
- </nav></div></div>

@@ -14,20 +14,22 @@
 <body>
 <%@include file="/WEB-INF/views/Header.jsp" %>
 <div class="container">
-<c:url value="/productUpdate" var="pru"></c:url>
-<form method="POST" action="<c:url value="/productUpdate"/>" enctype="multipart/form-data">
+<c:url value="/admin/productUpdate" var="pru"></c:url>
+<form method="POST" action="<c:url value="/admin/productUpdate"/>" enctype="multipart/form-data">
 <span id="reauth-email" class="reauth-email"></span>
+
+<input type="hidden" name="pid" value="${prod.pid }">
 <h4 class="input-title">Product Name</h4>
-<input class="form-control" type="text" name="pName" required>
+<input value="${prod.pname }" type="text" name="pName" required>
 
 <h4 class="input-title">Product Description</h4>
-<input class="form-control" type="text" name="pDescription" required>
+<input value="${prod.description }" type="text" name="pDescription" required>
 
 <h4 class="input-title">Product Price</h4>
-<input class="form-control" type="text" name="pPrice" required>
+<input value="${prod.price }" type="text" name="pPrice" required>
 
 <h4 class="input-title">Product Stock</h4>
-<input class="form-control" type="text" name="pStock" required>
+<input value="${prod.stock }" type="text" name="pStock" required>
 
 <div class="form-group">
 <table>

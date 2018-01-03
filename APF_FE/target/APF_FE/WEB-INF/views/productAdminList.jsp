@@ -9,6 +9,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <%@include file="/WEB-INF/views/Header.jsp" %>
@@ -43,8 +46,8 @@
 <td><c:out value="${p.stock }"></c:out></td>
 <td><img src="${pageContext.request.contextPath }/resources/${p.imgname}" height="50px" width="50px"></td>
 <td ><c:set var="contextRoot" value="${pageContext.request.contextPath }"></c:set>
-<a class="btn btn-info" role="button"  href="#">Edit</a>
-<a class="btn btn-danger" role="button" href="#">Delete</a></td>
+<a class="btn btn-info" role="button"  href="${contextRoot }/updateProd?id=<c:out value="${p.pid }"></c:out>">Edit</a>
+<a class="btn btn-danger" role="button" href="<c:url value="deleteprod/${p.pid }"/>">Delete</a></td>
 </tr>
 </c:forEach>
 </table>

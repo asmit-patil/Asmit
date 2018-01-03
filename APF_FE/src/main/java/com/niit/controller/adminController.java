@@ -33,12 +33,12 @@ public class adminController {
 	@Autowired
 	ProductDaoImpl productDaoImpl;
 	
-		@RequestMapping("/adding")
+		@RequestMapping("/admin/adding")
 		public String adding(){
 			return "adding";
 		}
 		
-	@RequestMapping(value="/saveSupp", method=RequestMethod.POST)
+	@RequestMapping(value="/admin/saveSupp", method=RequestMethod.POST)
 	@Transactional
 	public ModelAndView saveSuppData(@RequestParam("sid")int sid,@RequestParam("sname")String sname){
 		 ModelAndView mv=new  ModelAndView();
@@ -50,7 +50,7 @@ public class adminController {
 		 return mv;
 	}
 	
-	@RequestMapping(value="/saveCat", method=RequestMethod.POST)
+	@RequestMapping(value="/admin/saveCat", method=RequestMethod.POST)
 	@Transactional
 	public ModelAndView saveCatData(@RequestParam("cid")int cid,@RequestParam("cname")String cname){
 		 ModelAndView mv=new  ModelAndView();
@@ -65,7 +65,7 @@ public class adminController {
 		 
 	}
 	
-	@RequestMapping(value="/saveProduct", method=RequestMethod.POST)
+	@RequestMapping(value="/admin/saveProduct", method=RequestMethod.POST)
 	//@Transactional
 	public String saveProd(HttpServletRequest request, @RequestParam("file")MultipartFile file)
 	{
@@ -103,7 +103,7 @@ public class adminController {
 		m.addAttribute("prodList", productDaoImpl.retrive());
 	}
 	
-	@RequestMapping("/productList")
+	@RequestMapping("/admin/productList")
 	public ModelAndView prodlist()
 	{
 		ModelAndView mv= new ModelAndView();
@@ -112,7 +112,7 @@ public class adminController {
 		return mv;
 	}
 	
-	@RequestMapping("/supplierList")
+	@RequestMapping("/admin/supplierList")
 	public ModelAndView supplist()
 	{
 		ModelAndView mv= new ModelAndView();
@@ -121,7 +121,7 @@ public class adminController {
 		return mv;
 	}
 	
-	@RequestMapping("/categoryList")
+	@RequestMapping("/admin/categoryList")
 	public ModelAndView catlist()
 	{
 		ModelAndView mv= new ModelAndView();
@@ -130,14 +130,14 @@ public class adminController {
 		return mv;
 	}
 	
-	@RequestMapping("/deleteProd/{pid}")
+	@RequestMapping("/admin/deleteProd/{pid}")
 	public String deleteProduct(@PathVariable("pid")int pid)
 	{
 		productDaoImpl.deleteProd(pid);
-		return "redirect/productList?del";
+		return "redirect:/admin/productList?del";
 	}
 	
-	@RequestMapping("/updateProd")
+	@RequestMapping("/admin/updateProd")
 	public ModelAndView updateProduct(@RequestParam("pid")int pid)
 	{
 		ModelAndView mv= new ModelAndView();
@@ -149,7 +149,7 @@ public class adminController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/productUpdate", method=RequestMethod.POST)
+	@RequestMapping(value="/admin/productUpdate", method=RequestMethod.POST)
 	//@Transactional
 	public String udateProd(HttpServletRequest request, @RequestParam("file")MultipartFile file)
 	{
@@ -178,7 +178,7 @@ public class adminController {
 			e.printStackTrace();
 			
 		}
-		return "redirect:/productList?update";
+		return "redirect:/admin/productList?update";
 	}
 	
 	
