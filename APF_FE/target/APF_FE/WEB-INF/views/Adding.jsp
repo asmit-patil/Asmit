@@ -34,7 +34,7 @@
 <div class="tab-content">
 
 <div class="tab-pane fade in active" id="tab1">
-<form method="POST" action="<c:url value="/saveSupp"/>" class="form-signin">
+<form method="POST" action="<c:url value="/admin/saveSupp"/>" class="form-signin">
 <span id="reauth-email" class="reauth-email"></span>
 <h4 class="input-title">Supplier Id</h4>
 <input class="form-control" type="number" name="sid" required>
@@ -49,7 +49,7 @@
 </div>
 
 <div class="tab-pane fade" id="tab2">
-<form method="POST" action="<c:url value="/saveCat"/>" class="form-signin">
+<form method="POST" action="<c:url value="/admin/saveCat"/>" class="form-signin">
 <span id="reauth-email" class="reauth-email"></span>
 <h4 class="input-title">Category Id</h4>
 <input class="form-control" type="number" name="cid" required>
@@ -63,7 +63,7 @@
 </div>
 
 <div class="tab-pane fade" id="tab3">
-<form method="POST" action="<c:url value="/saveProduct"/>" class="form-signin" enctype="multipart/form-data">
+<form method="POST" action="<c:url value="/admin/saveProduct"/>" class="form-signin" enctype="multipart/form-data">
 <span id="reauth-email" class="reauth-email"></span>
 <h4 class="input-title">Product Name</h4>
 <input class="form-control" type="text" name="pName" required>
@@ -106,7 +106,7 @@
 </div>
 <div class="fileinput fileinput-new" data-provides="fileinput">
 <td>Product Image</td>
-<td><input class="form-coontrol" type="file" name="file" accept="image/*"></td>
+<td><input class="form-control" type="file" name="file" accept="image/*"></td>
 </div><br>
 <button class="btn btn-lg btn-primary" type="submit">Save</button>
 <button class="btn btn-lg btn-warning" type="reset">Cancel</button>

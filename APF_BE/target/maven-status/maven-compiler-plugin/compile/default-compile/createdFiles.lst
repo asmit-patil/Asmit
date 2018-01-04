@@ -1,14 +1,14 @@
 com\niit\Dao\ProductDao.class
-com\niit\model\User.class
 com\niit\model\Product.class
 com\niit\model\Supplier.class
-com\niit\DaoImpl\UserDaoImpl.class
+com\niit\Dao\CustomerDao.class
 com\niit\DaoImpl\SupplierDaoImpl.class
 com\niit\Dao\CategoryDao.class
+com\niit\model\Customer.class
 com\niit\Dao\SupplierDao.class
-com\niit\Dao\UserDao.class
 com\niit\APF_BE\App.class
 com\niit\DaoImpl\ProductDaoImpl.class
 com\niit\model\Category.class
+com\niit\DaoImpl\CustomerDaoImpl.class
 com\niit\DaoImpl\CategoryDaoImpl.class
 com\niit\config\hibernateConfig.class

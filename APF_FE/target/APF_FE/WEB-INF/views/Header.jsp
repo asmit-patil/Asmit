@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="navbar navbar-default">
 		<div class="container-fluid">
 		<button type="button" class="navbar-toggle collapsed" 
@@ -19,14 +19,14 @@
 			<ul class="nav navbar-nav navbar">
 			
 			 <li><a href="<c:url value="/" /> ">Home</a></li>
-             <li><a href="<c:url value="adding" />"> Admin</a></li>
+             <li><a href="<c:url value="admin/adding" />"> Admin</a></li>
 			 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" 
                         href="#" id="navbarDropdown" aria-haspopup="true">Admin List<span class="caret"></span></a>
                         
                         	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        	<li><a href="${pageContext.request.contextPath }/productList">Product</a></li>
-                      	 	<li><a href="${pageContext.request.contextPath }/supplierList">Supplier</a></li>
-                        	<li><a href="${pageContext.request.contextPath }/categoryList">Category</a></li>
+                        	<li><a href="${pageContext.request.contextPath }/admin/productList">Product</a></li>
+                      	 	<li><a href="${pageContext.request.contextPath }/admin/supplierList">Supplier</a></li>
+                        	<li><a href="${pageContext.request.contextPath }/admin/categoryList">Category</a></li>
                        	</ul>
                         </li>	
                         
@@ -46,10 +46,17 @@
 
 			
 			<ul class="nav navbar-nav navbar pull-right">
+				<c:if test="${pageContext.request.userPrincipal.name==null }">
    					<li><a href="<c:url value="goToRegister" />">Signup</a></li>  
-  					<li><a href="#">Login</a></li> 
-    				<li><a href="#">Logout</a></li>
-    				<li><a href="#">My Cart</a></li>
+  					<li><a href="${pageContext.request.contextPath }/goToLogin">Login</a></li> 
+  				</c:if>
+  				
+  				<c:if test="${pageContext.request.userPrincipal.name != null }">
+  					<li><a>Welcome ${pageContext.request.userPrincipal.name }</a></li>
+  					<li><a href="${pageContext.request.contextPath }/logout">Logout</a></li>
+  				</c:if>
+    				
+    				
     			</ul>
 			</div>
 		</div>

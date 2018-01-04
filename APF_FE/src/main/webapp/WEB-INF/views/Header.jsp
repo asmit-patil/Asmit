@@ -47,7 +47,7 @@
 			
 			<ul class="nav navbar-nav navbar pull-right">
 				<c:if test="${pageContext.request.userPrincipal.name==null }">
-   					<li><a href="<c:url value="${pageContext.request.contextPath }/goToRegister" />">Signup</a></li>  
+   					<li><a href="<c:url value="goToRegister" />">Signup</a></li>  
   					<li><a href="${pageContext.request.contextPath }/goToLogin">Login</a></li> 
   				</c:if>
   				

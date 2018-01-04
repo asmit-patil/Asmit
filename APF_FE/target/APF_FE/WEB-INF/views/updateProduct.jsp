@@ -14,8 +14,8 @@
 <body>
 <%@include file="/WEB-INF/views/Header.jsp" %>
 <div class="container">
-<c:url value="/productUpdate" var="pru"></c:url>
-<form method="POST" action="<c:url value="/productUpdate"/>" enctype="multipart/form-data">
+<c:url value="/admin/productUpdate" var="pru"></c:url>
+<form method="POST" action="<c:url value="/admin/productUpdate"/>" enctype="multipart/form-data">
 <span id="reauth-email" class="reauth-email"></span>
 
 <input type="hidden" name="pid" value="${prod.pid }">

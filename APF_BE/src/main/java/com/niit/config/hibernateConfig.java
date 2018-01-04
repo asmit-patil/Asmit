@@ -14,7 +14,7 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.niit.Dao.UserDao;
+
 import com.niit.DaoImpl.*;
 import com.niit.model.*;
 
@@ -74,7 +74,7 @@ public class hibernateConfig {
 			
 			builder.addProperties(getHibernateProperties());
 			builder.scanPackages("com.niit.APF_BE.model");
-			builder.addAnnotatedClass(User.class);
+			builder.addAnnotatedClass(Customer.class);
 			builder.addAnnotatedClass(Supplier.class);
 			builder.addAnnotatedClass(Category.class);
 			builder.addAnnotatedClass(Product.class);
@@ -82,11 +82,13 @@ public class hibernateConfig {
 			
 		}
 
+		
+		
 		@Autowired
-		@Bean(name="UserDaoImpl")
-		public UserDaoImpl saveUserData(SessionFactory sf) 
+		@Bean(name="CustomerDaoImpl")
+		public CustomerDaoImpl saveUserData(SessionFactory sf) 
 		{
-			return new UserDaoImpl(sf);
+			return new CustomerDaoImpl(sf);
 		}
 		
 		@Autowired
