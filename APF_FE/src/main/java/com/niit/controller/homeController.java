@@ -1,7 +1,7 @@
 package com.niit.controller;
 
 
-import javax.servlet.http.HttpServletRequest;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,8 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.niit.DaoImpl.CategoryDaoImpl;
 import com.niit.DaoImpl.CustomerDaoImpl;
 import com.niit.DaoImpl.ProductDaoImpl;
-//import com.niit.DaoImpl.UserDaoImpl;
-import com.niit.model.Category;
 import com.niit.model.Customer;
 
 
@@ -102,6 +100,12 @@ return "redirect:/index";
 public String error()
 {
 return "error";
+}
+
+@RequestMapping("/reLogin")
+public String relogin()
+{
+return "redirect:/goToLogin";
 }
 
 }

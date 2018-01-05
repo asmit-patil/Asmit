@@ -25,7 +25,7 @@ import javax.persistence.Entity;
 
 		private String lname;
 
-		private String add;
+		private String address;
 		
 		private String number;
 		
@@ -66,12 +66,12 @@ import javax.persistence.Entity;
 			this.lname = lname;
 		}
 
-		public String getAdd() {
-			return add;
+		public String getAddress() {
+			return address;
 		}
 
-		public void setAdd(String add) {
-			this.add = add;
+		public void setAddress(String address) {
+			this.address = address;
 		}
 
 		public String getNumber() {
