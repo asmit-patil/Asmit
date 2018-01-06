@@ -76,7 +76,7 @@
 
 <h4 class="input-title">Product Stock</h4>
 <input class="form-control" type="text" name="pStock" required>
-
+<br>
 <div class="form-group">
 <table>
 <tr>

@@ -78,6 +78,8 @@ public class hibernateConfig {
 			builder.addAnnotatedClass(Supplier.class);
 			builder.addAnnotatedClass(Category.class);
 			builder.addAnnotatedClass(Product.class);
+			builder.addAnnotatedClass(Cart.class);
+			builder.addAnnotatedClass(Order.class);
 			return builder.buildSessionFactory();
 			
 		}
@@ -111,6 +113,21 @@ public class hibernateConfig {
 		{
 			return new ProductDaoImpl(sf);
 		}
+		
+		@Autowired
+		@Bean(name="CartDaoImpl")
+		public CartDaoImpl saveCartData(SessionFactory sf) 
+		{
+			return new CartDaoImpl(sf);
+		}
+		
+		@Autowired
+		@Bean(name="OrderDaoImpl")
+		public OrderDaoImpl saveOrderData(SessionFactory sf) 
+		{
+			return new OrderDaoImpl(sf);
+		}
+		
 		// transactionManager bean
 		@Bean
 		public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <nav class="navbar navbar-default">
 		<div class="container-fluid">
 		<button type="button" class="navbar-toggle collapsed" 

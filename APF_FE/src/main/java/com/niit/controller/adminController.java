@@ -66,7 +66,7 @@ public class adminController {
 	}
 	
 	@RequestMapping(value="/admin/saveProduct", method=RequestMethod.POST)
-	//@Transactional
+	@Transactional
 	public String saveProd(HttpServletRequest request, @RequestParam("file")MultipartFile file)
 	{
 		Product prod = new Product();

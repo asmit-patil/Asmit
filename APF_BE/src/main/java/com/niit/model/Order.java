@@ -19,6 +19,16 @@ public class Order implements Serializable{
 	private Customer user;
 	
 	private String payment;
+	
+	private double total;
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
 
 	public int getOrderId() {
 		return orderId;

@@ -45,11 +45,11 @@ public class ProductDaoImpl  implements ProductDao{
 	public Product findByPID(int pid)
 	{
 		Session s=sessionFactory.openSession();
-		Product p=null;
+		Product prod=null;
 		try
 		{
 			s.beginTransaction();
-			p=s.get(Product.class, pid);
+			prod=s.get(Product.class, pid);
 			s.getTransaction().commit();
 		}
 		catch(HibernateException e)
@@ -58,7 +58,7 @@ public class ProductDaoImpl  implements ProductDao{
 			s.getTransaction().rollback();
 		}
 		
-		return p;
+		return prod;
 	}
 	
 	public List<Product> findprodByCatId(int cid)
