@@ -43,7 +43,7 @@ public class cartController {
 	@Autowired
 	OrderDaoImpl orderDaoImpl;
 	
-	@RequestMapping(value="/prodDetails", method=RequestMethod.POST)
+	@RequestMapping(value="/prodDetails/${p.pid}", method=RequestMethod.POST)
 	public ModelAndView prodDet(@PathVariable("pid")int pid)
 	{
 		ModelAndView mv= new ModelAndView();
