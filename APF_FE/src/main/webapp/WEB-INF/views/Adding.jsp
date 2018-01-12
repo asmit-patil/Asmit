@@ -1,19 +1,31 @@
-  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java"
+	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>AP Books</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
 </head>
 <body>
-<%@include file="/WEB-INF/views/Header.jsp" %>
+
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+
+
 <div class="container"><br>
 
 <div class="page-header">
@@ -41,7 +53,7 @@
 <input class="form-control" type="number" name="sid" required>
 
 <h4 class="input-title">Supplier Name</h4>
-<input class="form-control" type="text" name="sname" required><br>
+<input class="form-control" type="text" name="supplierName" required><br>
 
 <button class="btn btn-lg btn-primary" type="submit">Save</button>
 <button class="btn btn-lg btn-warning" type="reset">Cancel</button>
@@ -56,7 +68,7 @@
 <input class="form-control" type="number" name="cid" required>
 
 <h4 class="input-title">Category Name</h4>
-<input class="form-control" type="text" name="cname" required><br>
+<input class="form-control" type="text" name="categoryName" required><br>
 
 <button class="btn btn-lg btn-primary" type="submit">Save</button>
 <button class="btn btn-lg btn-warning" type="reset">Cancel</button>
@@ -86,7 +98,7 @@
 <select class="form-control" name="pSupplier" required>
 <option value="">----Select----</option>
 <c:forEach items="${satList}" var="sat">
-<option value="${sat.sid }">${sat.sname}</option>
+<option value="${sat.sid }">${sat.supplierName}</option>
 </c:forEach>
 </select></td></tr>
 </table>
@@ -100,7 +112,7 @@
 <select class="form-control" name="pCategory" required>
 <option value="">----Select----</option>
 <c:forEach items="${catList}" var="cat">
-<option value="${cat.cid }">${cat.cname}</option>
+<option value="${cat.cid }">${cat.categoryName}</option>
 </c:forEach>
 </select></td></tr>
 </table>
@@ -123,7 +135,5 @@
 </div>
 </div>
 </div>
-
-<%@include file="/WEB-INF/views/Footer.jsp" %>
 </body>
 </html>
