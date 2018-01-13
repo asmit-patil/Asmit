@@ -44,8 +44,8 @@
 <td><c:out value="${p.sid }"></c:out></td>
 <td><c:out value="${p.supplierName }"></c:out></td>
 <td><c:set var="contextRoot" value="${pageContext.request.contextPath }"></c:set>
-<a class="btn btn-info" role="button" href="#">Edit</a>
-<a class="btn btn-danger" role="button" href="#">Delete</a></td>
+<a class="btn btn-info" role="button" href="${contextRoot }/admin/updateSupp?sid=<c:out value="${p.sid }"></c:out>">Edit</a>
+<a class="btn btn-danger" role="button" href="<c:url value="/admin/deleteSupp/${p.sid }"/>">Delete</a></td>
 </tr>
 </c:forEach>
 </table>

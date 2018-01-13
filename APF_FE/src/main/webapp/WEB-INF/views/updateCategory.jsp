@@ -25,30 +25,19 @@
 
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <div class="container">
-<h2>Category List for Admin</h2>
-<table class="table table-hover" id="acl" class="display" border="2" width="80" align="center">
-<tr><th>Sr. No</th>
-<th>CID</th>
-<th>Category Name</th>
-<th class="span2">Action</th>
-</tr>
+<c:url value="/admin/categoryUpdate" var="pru"></c:url>
+<form method="POST" action="<c:url value="/admin/categoryUpdate"/>" enctype="multipart/form-data">
+<span id="reauth-email" class="reauth-email"></span>
 
-<c:if test="${empty catList }">
-<tr>
-<td colspan="10" align="center">No Record Exists!!</td>
-</tr>
-</c:if>
-<c:forEach varStatus="st" var="p"  items="${catList}">
-<tr>
-<td><c:out value="${st.count }"></c:out></td>
-<td><c:out value="${p.cid }"></c:out></td>
-<td><c:out value="${p.categoryName }"></c:out></td>
-<td class="span4"><c:set var="contextRoot" value="${pageContext.request.contextPath }"></c:set>
-<a role="button" class="btn btn-info"  href="${contextRoot }/admin/updateCat?cid=<c:out value="${p.cid }"></c:out>">Edit</a>
-<a class="btn btn-danger" role="button" href="<c:url value="/admin/deleteCat/${p.cid }"/>">Delete</a></td>
-</tr>
-</c:forEach>
-</table>
+<h4 class="input-title">Category Id</h4>
+<input value="${cat.cid }" type="number" name="cid" readonly>
+
+<h4 class="input-title">Category Name</h4>
+<input value="${cat.categoryName }" type="text" name="categoryName" required><br>
+
+<button class="btn btn-lg btn-primary" type="submit">Save</button>
+<button class="btn btn-lg btn-warning" type="reset">Cancel</button>
+</form>
 </div>
 </body>
 </html>

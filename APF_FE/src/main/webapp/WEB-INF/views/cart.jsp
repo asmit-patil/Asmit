@@ -56,9 +56,16 @@
 
 </tr>
 </c:forEach>
-<td colspan="6">
+
 <c:set var="gtot" value="0"></c:set>
-<span class="col-lg-9" align="right"><label>Grand Total :</label><c:out value="${p.cartStock * p.cartPrice }"></c:out></span>
+
+<c:forEach var="c" items="${cartInfo }">
+<c:set var="gtot" value="${gtot+c.cartPrice*c.cartStock }"></c:set>
+</c:forEach>
+
+ <td colspan="6">
+
+<label>Grand Total :</label><c:out value="${gtot }"></c:out>
 </td>
 
 

@@ -53,13 +53,16 @@
 <br>
 <label>Select Payment</label>
 <select name="payment">
+<option>--select--</option>
 <option value="COD">Cash On Delivery</option>
 <option value="NET">Net Banking</option>
 </select><br><br>
 <div>
 
-Name:<input type="text" name="name on card"><br><br>
+Name on card:<input type="text" name="name on card"><br><br>
 Card Number:<input type="number" name="card number"><br><br>
+CVV:<input type="number" name="cvv"><br><br>
+Expiry Date:<input type="date" name="date"><br><br>
 <input type="hidden" name="total" value="${gtot }">
 </div>
 </div>

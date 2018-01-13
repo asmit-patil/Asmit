@@ -140,8 +140,8 @@ public class CartController {
 
 }
 	
-	@RequestMapping(value="/deletePCart/{ cartId}")
-	public ModelAndView deletecartItem(@PathVariable("cartId")int cartId, HttpServletRequest req){
+	/*@RequestMapping(value="/deletePCart/{ cartId}")
+	public ModelAndView deletecartItem(@PathVariable("cartId") int cartId, HttpServletRequest req){
 		ModelAndView mv= new ModelAndView();
 		 Principal principal= req.getUserPrincipal();
 		 String userEmail =principal.getName();
@@ -149,8 +149,14 @@ public class CartController {
 		 mv.addObject("cartInfo", cartDaoImpl.findByCartId(userEmail));
 		 mv.setViewName("cart");
 		 return mv;
-	}
+	}*/
 
+	@RequestMapping(value="/deletePCart/{ cartId}")
+	public String deletecartItem(@PathVariable("cartId") int cartId){
+		
+		 cartDaoImpl.deleteCart(cartId);
+		 return "redirect:/cartInfo?del";
+	}
 	
 	@RequestMapping(value="/goToCart", method=RequestMethod.GET)
 	public ModelAndView gotocart( HttpServletRequest req){

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.util.AutoPopulatingList;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -150,6 +151,19 @@ public class adminController {
 		return "redirect:/admin/productList?del";
 	}
 	
+	@RequestMapping("/deleteCat/{cid}")
+	public String deleteCategory(@PathVariable("cid")int cid)
+	{
+		categoryDaoImpl.deleteCat(cid);
+		return "redirect:/admin/categoryList?del";
+	}
+	
+	@RequestMapping("/deleteSupp/{sid}")
+	public String deleteSupplier(@PathVariable("sid")int sid)
+	{
+		supplierDaoImpl.deleteSupp(sid);
+		return "redirect:/admin/supplierList?del";
+	}
 	@RequestMapping("/updateProd")
 	public ModelAndView updateProduct(@RequestParam("pid")int pid)
 	{
@@ -161,6 +175,27 @@ public class adminController {
 		mv.setViewName("updateProduct");
 		return mv;
 	}
+	
+	@RequestMapping("/updateCat")
+	public ModelAndView updateCat(@RequestParam("cid")int cid)
+	{
+		ModelAndView mv= new ModelAndView();
+		Category c=categoryDaoImpl.findByCatId(cid);
+		mv.addObject("cat",c);
+		mv.setViewName("updateCategory");
+		return mv;
+	}
+	
+	@RequestMapping("/updateSupp")
+	public ModelAndView updateSupp(@RequestParam("sid")int sid)
+	{
+		ModelAndView mv= new ModelAndView();
+		Supplier s=supplierDaoImpl.findBySuppId(sid);
+		mv.addObject("sat",s);
+		mv.setViewName("updateSupplier");
+		return mv;
+	}
+	
 	
 	@RequestMapping(value="/productUpdate", method=RequestMethod.POST)
 	//@Transactional
@@ -197,5 +232,25 @@ public class adminController {
 		return "redirect:/admin/productList?update";
 	}
 	
+	@RequestMapping(value="/supplierUpdate", method=RequestMethod.POST)
+	public String updateSupp(HttpServletRequest request){
+		
+		String sid=request.getParameter("sid");
+		Supplier s=new Supplier();
+		s.setSid(Integer.parseInt(sid));
+		s.setSupplierName(request.getParameter("supplierName"));
+		supplierDaoImpl.updateSupp(s);
+		return "redirect:/admin/supplierList?update";
+	}
 	
+	@RequestMapping(value="/categoryUpdate", method=RequestMethod.POST)
+	public String updateCat(HttpServletRequest request){
+		
+		String cid=request.getParameter("cid");
+		Category c=new Category();
+		c.setCid(Integer.parseInt(cid));
+		c.setCategoryName(request.getParameter("categoryName"));
+		categoryDaoImpl.updateCat(c);
+		return "redirect:/admin/categoryList?update";
+	}
 }
