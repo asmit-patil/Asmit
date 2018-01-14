@@ -26,6 +26,6 @@
 <h1>THANK YOU FOR SHOPPING WITH US!!!!!!</h1>
 
 
-
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

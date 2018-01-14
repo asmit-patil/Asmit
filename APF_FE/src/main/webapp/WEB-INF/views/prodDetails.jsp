@@ -73,6 +73,6 @@
 </div>
 <h4> We are Authorized company by Indian Government</h4>
 </div>
-
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

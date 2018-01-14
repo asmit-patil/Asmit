@@ -64,8 +64,8 @@
   </style>
 </head>
 <body>
-
-	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	
 	<div class="container">
 
 
@@ -104,6 +104,8 @@
 				class="sr-only">Next</span></a>
 		</div>
 
-	</div>
+	</div></div>
+	
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>
